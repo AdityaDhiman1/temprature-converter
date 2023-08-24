@@ -8,8 +8,6 @@ app.use(express.static('public'));
 
 
 const start = () => {
-    app.listen(PORT, () => {
-        console.log("listening on port",PORT)
-    })
+    app.listen(PORT)
 }
 start()
