@@ -5,7 +5,6 @@ function tempConverter() {
     let value_c = parseInt(document.getElementById("value_c").value);
     let showresult = document.getElementById("result")
     let err = document.getElementById("err")
-
     function getcelsiustofahanheit(a) {
         let result = parseFloat((a * 9 / 5) + 32)
         showresult.innerText = `${result}°F`
@@ -58,6 +57,13 @@ function tempConverter() {
         err.innerText = `The value already in temperature`
         err.style.color = 'red'
     }
+    if (isNaN(value_c)) {
+        err.innerText = "Please enter a valid number.";
+        showresult.innerText = ""; 
+        return; 
+    } else {
+        err.innerText = ""; 
+    }
     if (value_a == "celsius" && value_b == "fahrenheit") {
         getcelsiustofahanheit(value_c)
     }
@@ -93,7 +99,8 @@ function tempConverter() {
     }
     else if (value_a == "rankine" && value_b == "kelvin") {
         getrankinetokelvin(value_c)
-    } else {
+    }
+    else {
         donotconvert()
     }
 }
